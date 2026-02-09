@@ -7,18 +7,19 @@ use PHPMailer\PHPMailer\Exception;
 require __DIR__ . '/vendor/autoload.php';
 
 
-$name    = $_POST['name'];
+$fullName    = $_POST['fullName'];
 $email   = $_POST['email'];
 $phone   = $_POST['phone'];
 $message = $_POST['message'];
 $formType = $_POST['form_type'];
+$service =$_POST['service'];
 
 // ===============================
 // ADMIN EMAIL CONFIG
 // ===============================
 $adminEmail = "connect@wellworthfm.com"; // admin mail
 $smtpHost   = "smtp.hostinger.com";
-$smtpUser   = "gaurav@tubelaser.in"; // SMTP email
+$smtpUser   = "connect@wellworthfm.com"; // SMTP email
 $smtpPass   = "C0nnecT@"; // Gmail App Password
 $smtpPort   = 587;
 
@@ -29,15 +30,15 @@ try {
     $mail->isSMTP();
     $mail->Host       = "smtp.hostinger.com";
     $mail->SMTPAuth   = true;
-    $mail->Username   = "gaurav@tubelaser.in";
-    $mail->Password   = "G@ur@v111";
+    $mail->Username   = "connect@wellworthfm.com";
+    $mail->Password   = "C0nnecT@";
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = $smtpPort;
 
     // ===============================
     // 1️⃣ MAIL TO USER (AUTO REPLY)
     // ===============================
-    $mail->setFrom("gaurav@tubelaser.in", "Wellworth Facilities Pvt Ltd");
+    $mail->setFrom("connect@wellworthfm.com", "Wellworth Facilities Pvt Ltd");
     $mail->addAddress($email, $name);
 
     $mail->isHTML(true);
@@ -54,7 +55,7 @@ try {
 
   <!-- BODY -->
   <div style='padding:25px;color:#333;'>
-    <p>Dear <strong>$name</strong>,</p>
+    <p>Dear <strong>$fullName</strong>,</p>
 
     <p>
       Thank you for contacting <strong>Wellworth Facilities Pvt Ltd</strong>.
@@ -108,7 +109,7 @@ try {
   </tr>
   <tr>
     <td><strong>Full Name:</strong></td>
-    <td>$name</td>
+    <td>$fullName</td>
   </tr>
   <tr>
     <td><strong>Email:</strong></td>
@@ -120,7 +121,7 @@ try {
   </tr>
   <tr>
     <td><strong>Services Requested:</strong></td>
-    <td>$Services</td>
+    <td>$service</td>
   </tr>
 </table>
 
