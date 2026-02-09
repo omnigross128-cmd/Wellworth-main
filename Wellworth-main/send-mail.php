@@ -1,5 +1,3 @@
-
-
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -148,6 +146,3 @@ This lead was generated from the Wellworth Facilities website.
 } catch (Exception $e) {
     echo "Mail Error: {$mail->ErrorInfo}";
 }
-
-
-
